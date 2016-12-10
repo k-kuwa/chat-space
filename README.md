@@ -16,6 +16,7 @@
 ####Association
 -user has_many :messages
 -user has_many :groups, through: :group_users
+-user has_many :group_users
 
 
 2. messages テーブル
@@ -45,6 +46,7 @@ messages belongs_to :group
 ####Association
 -group has_many :messages
 -group has_many :users, through: :group_users
+-group has_many :group_users
 
 
 4. group_users テーブル
