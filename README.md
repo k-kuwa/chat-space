@@ -6,7 +6,7 @@
 1. users テーブル
 
 |column|type|restriction||
-|name|string|null false, unique true|index|
+|name|string|null false, unique true|index true|
 |----|------|-------------||
 |email|string|null false, unique true||
 |------|------|------------||
@@ -15,7 +15,7 @@
 
 ####Association
 -user has_many :messages
--user has_many :group_users
+-user has_many :groups, through: :group_users
 
 
 2. messages テーブル
@@ -26,9 +26,9 @@
 |------|-----|----------|
 |image|string | |
 |------|------|--------|
-|group_id |integer|null false|
+|group_id |reference|null false|
 |-------|------|-------|
-|user_id|integer|null false|
+|user_id|reference|null false|
 
 ####Association
 messages belongs_to :user
@@ -44,16 +44,16 @@ messages belongs_to :group
 
 ####Association
 -group has_many :messages
--group has_many :group_users
+-group has_many :users, through: :group_users
 
 
 4. group_users テーブル
 
 |column|type|restriction|
 |------|-----|----------|
-|user_id|integer|null false|
+|user_id|reference|null false|
 |---------|-------|-----------|
-|group_id|integer|null false|
+|group_id|reference|null false|
 
 ####Association
 -group_user belongs_to :user
