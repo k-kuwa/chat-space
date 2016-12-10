@@ -13,6 +13,11 @@
 |password|string|null false||
 |------|------|----------||
 
+####Association
+-user has_many :messages
+-user has_many :group_users
+
+
 2. messages テーブル
 
 |column|type|restriction|
@@ -25,6 +30,10 @@
 |-------|------|-------|
 |user_id|integer|null false|
 
+####Association
+messages belongs_to :user
+messages belongs_to :group
+
 
 3. groups テーブル
 
@@ -32,6 +41,11 @@
 |------|-----|----------|
 |name|string|null false, unique true|
 |---------|-------|-----------|
+
+####Association
+-group has_many :messages
+-group has_many :group_users
+
 
 4. group_users テーブル
 
@@ -41,21 +55,13 @@
 |---------|-------|-----------|
 |group_id|integer|null false|
 
-
-
-##Association
-
--user has_many :messages
--user has_many :chats
-
+####Association
 -group_user belongs_to :user
 -group_user belongs_to :group
 
--group has_many :messages
--group has_many :members
 
--members belongs_to :user
-_members belongs_to :group
+
+
 
 
 
