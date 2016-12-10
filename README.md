@@ -8,7 +8,7 @@
 |column|type|restriction||
 |name|string|null false, unique true|index true|
 |----|------|-------------||
-|email|string|null false, unique true||
+|email|string|null false, unique true|index true|
 |------|------|------------||
 |password|string|null false||
 |------|------|----------||
@@ -24,11 +24,11 @@
 |------|-----|----------|
 |body|text|null false|
 |------|-----|----------|
-|image|string | |
+|image|string |null false|
 |------|------|--------|
-|group_id |reference|null false|
+|group_id |references|null false,foreign_key: true|
 |-------|------|-------|
-|user_id|reference|null false|
+|user_id|references|null false,foreign_key: true|
 
 ####Association
 messages belongs_to :user
@@ -51,9 +51,9 @@ messages belongs_to :group
 
 |column|type|restriction|
 |------|-----|----------|
-|user_id|reference|null false|
+|user_id|references|null false,foreign_key: true|
 |---------|-------|-----------|
-|group_id|reference|null false|
+|group_id|references|null false,foreign_key: true|
 
 ####Association
 -group_user belongs_to :user
