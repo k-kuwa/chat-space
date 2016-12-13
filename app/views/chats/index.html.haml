@@ -1,0 +1,32 @@
+%p.message チャットグループが作成されました。
+%div.chat
+  %div.chat__side
+    %div.chat__side__header
+      %h seo
+      %div.chat__side__header__action
+        %a.chat__side__header__action__pencil
+          %i{class: "fa fa-pencil-square-o"}
+        %a.chat__side__header__action__gear
+          %i{class: "fa fa-cog"}
+    %ul.chat__side__groups
+      %li.chat__side__groups__group sample
+      %p.chat__side__groups__comment good bye world
+  %div.chat__main
+    %div.chat__main__header
+      %div.chat__main__header__left
+        %p.chat__main__header__left__title sample
+        %p.chat__main__header__left__members Members: seo,neko
+      %div.chat__main__header__right
+        %p.chat__main__header__right__edit Edit
+    %div.chat__main__center
+      %ul.chat__main__center__message
+        %li.chat__main__center__message__name seo
+        %li.chat__main__center__message__date 2016/09/16 06:16:55
+        %li.chat__main__center__message__text Hello World!
+    %div.chat__main__footer
+      %form.chat__main__footer__newmessage
+        %div.chat__main__footer__newmessage__area
+          %textarea{ class: "message__text", placeholder: "type a message"}
+          %label{class: "message__image"}
+            %i{class: "fa fa-image"}
+        %input{type: "submit",value: "Send"}
