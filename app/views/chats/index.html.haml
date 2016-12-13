@@ -1,0 +1,32 @@
+%p{:class => "message"} チャットグループが作成されました。
+%div{:class => "chat"}
+  %div{:class => "chat__side"}
+    %div{:class => "side__header"}
+      %h seo
+      %div{:class => "side__header__action"}
+        %a{:class => "pencil"}
+          %i{:class => "fa fa-pencil-square-o"}
+        %a{:class => "gear"}
+          %i{:class => "fa fa-cog"}
+    %ul{:class => "side__groups"}
+      %li{:class => "side__group"}sample
+      %p{:class => "side__comment"}good bye world
+  %div{:class => "chat__main"}
+    %div{:class => "main__header"}
+      %div{:class => "header__left"}
+        %p{:class => "header__left__title"}sample
+        %p{:class => "header__left__members"}Members: seo,neko
+      %div{:class => "header__right"}
+        %p{:class => "header__right__edit"}Edit
+    %div{:class => "main__center"}
+      %ul{:class => "center__message"}
+        %li{:class => "message__name"}seo
+        %li{:class => "message__date"}2016/09/16 06:16:55
+        %li{:class => "message__text"}Hello World!
+    %div{:class => "main__footer"}
+      %form{:class => "new__message"}
+        %div{:class => "new__message__area"}
+          %textarea{:class =>"message__text",:placeholder =>"type a message"}
+          %label{:class => "message__image"}
+            %i{:class => "fa fa-image"}
+        %input{:type => "submit",:value =>"Send"}

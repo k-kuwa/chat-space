@@ -1,2 +1,222 @@
-*= require font-awesome
+/*
+ *= require font-awesome
+ */
 @import "./reset";
+
+.message {
+  background: #38AEF0;
+  color: white;
+  text-align: center;
+}
+
+.chat {
+  height: 680px;
+  min-width: 960px;
+  background-color: gray;
+
+      .chat__side {
+      width: 300px;
+      height: 100%;
+      background-color: #2f3e51;
+      float:left;
+          .side__header{
+          width: 300px;
+          height: 60px;
+          background-color: #253141;
+          padding: 20px;
+               h {
+                color: #FFFFFF;
+                font-size: 16px;
+                font-weight: bold;
+               }
+               .side__header__action{
+               color:white;
+               width: 70px;
+               height:50px;
+               background-color: #253141;
+               float: right;
+               box-sizing: border-box;
+               margin: 0 40px 0 0;
+
+                 .pencill{
+                   .fa{
+                    display: inline-block;
+                    font: normal normal normal 14px/1 FontAwesome;
+                    font-size: inherit;
+                    text-rendering: auto;
+                   }
+
+                 }
+                 .gear{
+                   .fa{
+                    display: inline-block;
+                    font: normal normal normal 14px/1 FontAwesome;
+                    font-size: inherit;
+                    text-rendering: auto;
+
+                   }
+
+                 }
+
+               }
+          }
+          .side__groups{
+            list-style: none;
+            color: #fff;
+            padding: 20px;
+
+                 .side__group{
+                  font-size: 15px;
+                }
+                 .side__comment {
+                 font-size: 13px;
+                 padding: 5px 0 40px 0;
+                }
+
+          }
+      }
+
+
+    .chat__main {
+      width: calc(100% - 300px);
+      height: 100%;
+      position: relative;
+      float: left;
+      background-color: #F5F5F5;
+
+          .main__header{
+            height: 100px;
+            background-color: white;
+            padding: 0 40px 0 0;
+            border-bottom: 1px solid #C0C0C0;
+
+              .header__left{
+                background-color: white;
+                height: 50px;
+                max-width: 500px;
+                padding: 35px 0 15px 40px;
+                float: left;
+
+                  .header__left__title{
+                    font-size: 20px;
+                    color: #333333;
+                  }
+                  .header__left__members{
+                    font-size: 12px;
+                    color: #999999;
+                  }
+
+              }
+              .header__right{
+                background-color: white;
+                height: 40px;
+                width: 60px;
+                margin: 28px 20px 0 0;
+                float: right;
+                border-color: #1E90FF;
+                border-style: solid;
+
+                  .header__right__edit{
+                    font-size: 15px;
+                    color: #1E90FF;
+                    padding: 10px 0 0 0;
+                    text-align: center;
+
+                  }
+
+              }
+
+
+          }
+          .main__center{
+
+              .center__message{
+                padding: 46px 0 40px 40px;
+                background-color: #F5F5F5;
+
+                  .message__name{
+                    color: #434A54;
+                    font-weight: bold;
+                    font-size: 16px;
+                    float: left;
+                    padding: 0 10px 0 0;
+
+                  }
+                  .message__date{
+                    font-size: 12px;
+                    color: #999999;
+                    float: left;
+                    margin: 5px 0 0 0;
+
+
+                  }
+                  .message__text{
+                    font-size: 14px;
+                    color: #434A54;
+                    height: 100%;
+                    padding: 10px 0 0 0;
+                    clear: both;
+
+                  }
+
+              }
+
+          }
+          .main__footer{
+            height: 100px;
+            background-color: #DCDCDC;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            clear: both;
+
+              .new__message{
+                height: 60px;
+                padding: 20px 0 20px 40px;
+
+                  .new__message__area{
+                    background-color: white;
+                    float:left;
+
+                      .message__text{
+                        min-width: 700px;
+                        height: 30px;
+                        margin: 10px;
+                        border: none;
+
+                      }
+                      .message__image{
+                      cursor: pointer;
+                      width: 40px;
+                      height: 50px;
+                      background-color: white;
+                      float: right;
+                      margin: 20px 0 0 0;
+
+                        .fa {
+                        display: inline-block;
+                        font: normal normal normal 14px/1 FontAwesome;
+                        font-size: inherit;
+                        text-rendering: auto;
+                         }
+                      }
+                  }
+
+              }
+               input{
+               display: inline-block;
+               background-color: #38aef0;
+               float: left;
+               width: 100px;
+               height: 60px;
+               color: white;
+               border: none;
+               margin: 0 0 0 15px;
+
+              }
+
+          }
+    }
+
+}
