@@ -1,7 +1,14 @@
-/*
- *= require font-awesome
- */
+@import "font-awesome";
 @import "./reset";
+
+$chat-header-color: #253141;
+
+@mixin icon{
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+}
 
 .message {
   background: #38AEF0;
@@ -14,45 +21,39 @@
   min-width: 960px;
   background-color: gray;
 
-      .chat__side {
+      &__side {
       width: 300px;
       height: 100%;
       background-color: #2f3e51;
       float:left;
-          .side__header{
+          &__header{
           width: 300px;
           height: 60px;
-          background-color: #253141;
+          background-color: $chat-header-color;
           padding: 20px;
                h {
                 color: #FFFFFF;
                 font-size: 16px;
                 font-weight: bold;
                }
-               .side__header__action{
+               &__action{
                color:white;
                width: 70px;
                height:50px;
-               background-color: #253141;
+               background-color: $chat-header-color;
                float: right;
                box-sizing: border-box;
                margin: 0 40px 0 0;
 
-                 .pencill{
+                 &__pencill{
                    .fa{
-                    display: inline-block;
-                    font: normal normal normal 14px/1 FontAwesome;
-                    font-size: inherit;
-                    text-rendering: auto;
+                    @include icon
                    }
 
                  }
-                 .gear{
+                 &__gear{
                    .fa{
-                    display: inline-block;
-                    font: normal normal normal 14px/1 FontAwesome;
-                    font-size: inherit;
-                    text-rendering: auto;
+                    @include icon
 
                    }
 
@@ -60,15 +61,15 @@
 
                }
           }
-          .side__groups{
+          &__groups{
             list-style: none;
             color: #fff;
             padding: 20px;
 
-                 .side__group{
+                 &__group{
                   font-size: 15px;
                 }
-                 .side__comment {
+                 &__comment {
                  font-size: 13px;
                  padding: 5px 0 40px 0;
                 }
@@ -77,37 +78,37 @@
       }
 
 
-    .chat__main {
+    &__main {
       width: calc(100% - 300px);
       height: 100%;
       position: relative;
       float: left;
       background-color: #F5F5F5;
 
-          .main__header{
+          &__header{
             height: 100px;
             background-color: white;
             padding: 0 40px 0 0;
             border-bottom: 1px solid #C0C0C0;
 
-              .header__left{
+              &__left{
                 background-color: white;
                 height: 50px;
                 max-width: 500px;
                 padding: 35px 0 15px 40px;
                 float: left;
 
-                  .header__left__title{
+                  &__title{
                     font-size: 20px;
                     color: #333333;
                   }
-                  .header__left__members{
+                  &members{
                     font-size: 12px;
                     color: #999999;
                   }
 
               }
-              .header__right{
+              &__right{
                 background-color: white;
                 height: 40px;
                 width: 60px;
@@ -116,7 +117,7 @@
                 border-color: #1E90FF;
                 border-style: solid;
 
-                  .header__right__edit{
+                  &__edit{
                     font-size: 15px;
                     color: #1E90FF;
                     padding: 10px 0 0 0;
@@ -128,13 +129,13 @@
 
 
           }
-          .main__center{
+          &__center{
 
-              .center__message{
+              &__message{
                 padding: 46px 0 40px 40px;
                 background-color: #F5F5F5;
 
-                  .message__name{
+                  &__name{
                     color: #434A54;
                     font-weight: bold;
                     font-size: 16px;
@@ -142,7 +143,7 @@
                     padding: 0 10px 0 0;
 
                   }
-                  .message__date{
+                  &__date{
                     font-size: 12px;
                     color: #999999;
                     float: left;
@@ -150,7 +151,7 @@
 
 
                   }
-                  .message__text{
+                  &__text{
                     font-size: 14px;
                     color: #434A54;
                     height: 100%;
@@ -162,7 +163,7 @@
               }
 
           }
-          .main__footer{
+          &__footer{
             height: 100px;
             background-color: #DCDCDC;
             position: absolute;
@@ -171,11 +172,11 @@
             left: 0;
             clear: both;
 
-              .new__message{
+              &__newmessage{
                 height: 60px;
                 padding: 20px 0 20px 40px;
 
-                  .new__message__area{
+                  &__area{
                     background-color: white;
                     float:left;
 
@@ -195,10 +196,7 @@
                       margin: 20px 0 0 0;
 
                         .fa {
-                        display: inline-block;
-                        font: normal normal normal 14px/1 FontAwesome;
-                        font-size: inherit;
-                        text-rendering: auto;
+                        @include icon
                          }
                       }
                   }
