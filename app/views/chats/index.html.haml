@@ -6,6 +6,8 @@
       = link_to "ログイン", new_user_session_path
       = link_to "新規登録", new_user_registration_path
       = link_to "ログアウト", destroy_user_session_path, method: :delete
+      -if user_signed_in? && current_user.id
+        = link_to '編集', edit_user_registration_path, method: :get
       %div.chat__side__header__action
         %a.chat__side__header__action__pencil
           %i{class: "fa fa-pencil-square-o"}
