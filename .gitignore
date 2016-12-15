@@ -11,3 +11,6 @@
 /log/*
 !/log/.keep
 /tmp
+/test/controllers
+/test/fixtures
+/test/models
