@@ -19,6 +19,7 @@ module ChatSpace
     config.generators do |g|
 
       g.test_framework false
+      g.helper false
 
     end
 
