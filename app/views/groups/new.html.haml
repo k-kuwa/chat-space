@@ -1,4 +1,5 @@
 .chat-group-form
+  %h1 新規チャットグループ
   = form_for @group do |f|
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
@@ -19,7 +20,7 @@
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         .chat-group-form__label
-          = f.label :name, "チャットメンバー"
+        = f.label :name, "チャットメンバー"
       .chat-group-form__field--right
         #chat-group-users
           #chat-group-user-22.chat-group-user.clearfix
