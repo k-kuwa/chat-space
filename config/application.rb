@@ -17,8 +17,10 @@ module ChatSpace
     config.i18n.default_locale = :ja
 
     config.generators do |g|
+
       g.test_framework false
+
     end
-    
+
   end
 end
