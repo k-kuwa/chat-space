@@ -11,11 +11,11 @@
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         .chat-group-form__label
-          = f.label :id, "チャットメンバーを追加"
+          / = f.label :id, "チャットメンバーを追加"
       .chat-group-form__field--right
         .chat-group-form__search.clearfix
           #user-search-field.chat-group-form__input
-            = f.text_field :id, placeholder: "追加したいユーザー名を入力してください"
+            / = f.text_field :id, placeholder: "追加したいユーザー名を入力してください"
         #user-search-result
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
@@ -24,8 +24,8 @@
       .chat-group-form__field--right
         #chat-group-users
           #chat-group-user-22.chat-group-user.clearfix
-            %input{:name => "group[user_ids][]", :type => "hidden", :value => "22"}/
-            %p.chat-group-user__name seo_kyohei
+            = f.collection_check_boxes(:user_ids, User.all, :id, :name) do |b|
+              = b.label { b.check_box + b.text }
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right
