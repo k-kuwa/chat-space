@@ -7,13 +7,10 @@ class GroupsController < ApplicationController
 
  def create
   @group = Group.create(group_params)
-
  end
 
-private
-
+ private
  def group_params
-  params.require(:group).permit(:name, {:user_ids => []})
+  params.require(:group).permit(:name, {user_ids: []})
  end
-
 end
