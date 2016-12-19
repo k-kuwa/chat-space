@@ -10,14 +10,23 @@ $chat-header-color: #253141;
   text-rendering: auto;
 }
 
-.message {
+
+@mixin flashMessage {
   background: #38AEF0;
   color: white;
   text-align: center;
 }
 
+.alert-alert {
+  @include flashMessage
+}
+
+.alert-notice {
+  @include flashMessage
+}
+
 .chat {
-  height: 680px;
+  height: 750px;
   min-width: 960px;
   background-color: gray;
 
@@ -38,7 +47,7 @@ $chat-header-color: #253141;
                }
                a{
                 color: #FFFFFF;
-                font-size: 13px;
+                font-size: 20px;
                }
                &__action{
                color:white;
