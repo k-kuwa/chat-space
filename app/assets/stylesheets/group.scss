@@ -1,6 +1,6 @@
-
 .chat-group-form {
   width: 980px;
+  height: 300px;
   margin: 60px auto;
   padding: 40px;
   background-color: #fff;
@@ -13,11 +13,8 @@
     font-size: 24px;
     text-align: center;
   }
-  .new_chat_group{
-    box-sizing: border-box;
 
-
-   .chat-group-form__errors {
+  .chat-group-form__errors {
     margin: 30px 0;
     padding: 20px 40px;
     border: 1px solid #ddd;
@@ -41,10 +38,9 @@
       padding: 0;
       font-size: 13px;
     }
-
-   .chat-group-form__field {
+  }
+  .chat-group-form__field {
     margin-top: 30px;
-
     .chat-group-form__field--left {
       float: left;
       width: 30%;
@@ -72,9 +68,9 @@
       padding: 10px 15px;
       box-sizing: border-box;
     }
-   }
+  }
 
-   .chat-group-user {
+  .chat-group-user {
     padding: 0 15px;
     line-height: 50px;
     font-size: 14px;
@@ -97,15 +93,13 @@
         color: #f05050;
       }
     }
-   }
+  }
 
-   .chat-group-form__action-btn {
+  .chat-group-form__action-btn {
     display: inline-block;
     padding: 12px 20px;
     color: #fff;
     background-color: #38aef0;
     border: 0;
-   }
- }
- }
+  }
 }
