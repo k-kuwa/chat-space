@@ -1,0 +1,15 @@
+.chat__side
+  .chat__side__header
+    %h
+      = current_user.name
+    .chat__side__header__action
+      = link_to new_group_path , class: "chat__side__header__action__pencil" do
+        %i.fa.fa-pencil-square-o
+      = link_to edit_user_registration_path, class: "chat__side__header__action__gear" do
+        %i.fa.fa-cog
+  %ul.chat__side__groups
+    = @user_groups.each do |user_group|
+      = link_to "#{user_group.id}" ,class: "chat__side__groups__group" do
+        %li
+          = user_group.name
+    %p.chat__side__groups__comment

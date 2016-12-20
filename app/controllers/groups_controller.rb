@@ -1,32 +1,47 @@
 class GroupsController < ApplicationController
 
+ before_action :group_find_id, only:[:show, :edit, :update]
+ before_action :user_groups, only:[:index, :show]
+
+ def index
+ end
+
  def new
   @group = Group.new
   @group.group_users.build
  end
 
  def create
-  @group = Group.create(group_params)
-  redirect_to "/groups/#{@group.id}"
+   @group = Group.create(group_params)
+   if @group.save
+    redirect_to group_path(id: @group.id)
+   else
+    redirect_to new_group_path
+  end
  end
 
  def show
-  @group = Group.find(params[:id])
-  @user_group = Group.includes(:users).where('user.id'== current_user.id)
  end
 
  def edit
-  @group = Group.find(params[:id])
  end
 
  def update
-  group = Group.find(params[:id])
-  group.update(group_params)
-  redirect_to "/groups/#{group.id}"
+  @group.update(group_params)
+  redirect_to group_path(id: @group.id)
  end
 
- private
+private
  def group_params
   params.require(:group).permit(:name, {user_ids: []})
+ end
+
+ def group_find_id
+  @group = Group.find(params[:id])
+ end
+
+ def user_groups
+  user = User.includes(:groups).find(current_user.id)
+  @user_groups = user.groups
  end
 end

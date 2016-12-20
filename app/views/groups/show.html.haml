@@ -1,36 +1,22 @@
-%div.chat
-  %div.chat__side
-    %div.chat__side__header
-      %h
-        = current_user.name
-      %div.chat__side__header__action
-        = link_to new_group_path , :class => "chat__side__header__action__pencil" do
-          %i.fa.fa-pencil-square-o
-        = link_to edit_user_registration_path, :class => "chat__side__header__action__gear" do
-          %i.fa.fa-cog
-    %ul.chat__side__groups
-      = @user_group.each do |user_groups|
-        %li.chat__side__groups__group
-          = link_to "#{user_groups.id}" do
-            = user_groups.name
-      %p.chat__side__groups__comment good bye world
-  %div.chat__main
-    %div.chat__main__header
-      %div.chat__main__header__left
+.chat
+  = render partial: "chat_side"
+  .chat__main
+    .chat__main__header
+      .chat__main__header__left
         %p.chat__main__header__left__title
         = @group.name
         %p.chat__main__header__left__members
-      %div.chat__main__header__right
-        = link_to "#{@group.id}/edit" do
+      = link_to "#{@group.id}/edit" do
+        .chat__main__header__right
           %p.chat__main__header__right__edit Edit
-    %div.chat__main__center
+    .chat__main__center
       %ul.chat__main__center__message
         %li.chat__main__center__message__name seo
         %li.chat__main__center__message__date 2016/09/16 06:16:55
         %li.chat__main__center__message__text Hello World!
-    %div.chat__main__footer
+    .chat__main__footer
       %form.chat__main__footer__newmessage
-        %div.chat__main__footer__newmessage__area
+        .chat__main__footer__newmessage__area
           %textarea{ class: "message__text", placeholder: "type a message"}
           %label{class: "message__image"}
             %i{class: "fa fa-image"}
