@@ -9,7 +9,10 @@
         = link_to edit_user_registration_path, :class => "chat__side__header__action__gear" do
           %i.fa.fa-cog
     %ul.chat__side__groups
-      %li.chat__side__groups__group sample
+      = @user_group.each do |user_groups|
+        %li.chat__side__groups__group
+          = link_to "#{user_groups.id}" do
+            = user_groups.name
       %p.chat__side__groups__comment good bye world
   %div.chat__main
     %div.chat__main__header
@@ -18,7 +21,7 @@
         = @group.name
         %p.chat__main__header__left__members
       %div.chat__main__header__right
-        = link_to "groups/1/edit" do
+        = link_to "#{@group.id}/edit" do
           %p.chat__main__header__right__edit Edit
     %div.chat__main__center
       %ul.chat__main__center__message
