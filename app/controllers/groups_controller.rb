@@ -14,9 +14,9 @@ class GroupsController < ApplicationController
  def create
    @group = Group.create(group_params)
    if @group.save
-    redirect_to group_path(id: @group.id)
+    redirect_to group_path(id: @group.id), notice: "グループを作成しました。"
    else
-    redirect_to new_group_path
+    redirect_to new_group_path, notice: "グループ名を入力してください。"
   end
  end
 
