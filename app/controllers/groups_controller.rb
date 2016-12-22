@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
 
- before_action :set_group_id, only: %i(show edit update)
- before_action :set_group_user_groups, only: %i(index show)
+ before_action :set_group, only: %i(show edit update)
+ before_action :set_user_groups, only: %i(index show)
 
  def index
  end
@@ -39,11 +39,11 @@ private
   params.require(:group).permit(:name, {user_ids: []})
  end
 
- def set_group_id
+ def set_group
   @group = Group.find(params[:id])
  end
 
- def set_group_user_groups
+ def set_user_groups
   user = User.includes(:groups).find(current_user.id)
   @user_groups = user.groups
  end
