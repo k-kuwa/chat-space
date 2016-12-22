@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
 
- before_action :group_find_id, only: %i(show edit update)
- before_action :user_groups, only: %i(index show)
+ before_action :set_group_id, only: %i(show edit update)
+ before_action :set_group_user_groups, only: %i(index show)
 
  def index
  end
@@ -12,11 +12,11 @@ class GroupsController < ApplicationController
  end
 
  def create
-   @group = Group.create(group_params)
+  @group = Group.new(group_params)
    if @group.save
-    redirect_to group_path(id: @group.id), notice: "グループを作成しました。"
+     redirect_to group_path(id: @group.id), notice: "グループを作成しました。"
    else
-    render :new
+     render :new
   end
  end
 
@@ -27,9 +27,8 @@ class GroupsController < ApplicationController
  end
 
  def update
-  @group.update(group_params)
-  if @group.save
-  redirect_to group_path(id: @group.id), notice: "グループを編集しました。"
+  if @group.update(group_params)
+    redirect_to group_path(id: @group.id), notice: "グループを編集しました。"
   else
     render :edit
   end
@@ -40,11 +39,11 @@ private
   params.require(:group).permit(:name, {user_ids: []})
  end
 
- def group_find_id
+ def set_group_id
   @group = Group.find(params[:id])
  end
 
- def user_groups
+ def set_group_user_groups
   user = User.includes(:groups).find(current_user.id)
   @user_groups = user.groups
  end
