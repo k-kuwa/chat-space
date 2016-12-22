@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
 
- before_action :group_find_id, only:[:show, :edit, :update]
- before_action :user_groups, only:[:index, :show]
+ before_action :group_find_id, only: %i(show edit update)
+ before_action :user_groups, only: %i(index show)
 
  def index
  end
@@ -28,7 +28,11 @@ class GroupsController < ApplicationController
 
  def update
   @group.update(group_params)
-  redirect_to group_path(id: @group.id)
+  if @group.save
+  redirect_to group_path(id: @group.id), notice: "グループを編集しました。"
+  else
+    render :edit
+  end
  end
 
 private
