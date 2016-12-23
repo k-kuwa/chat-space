@@ -1,7 +1,6 @@
 .chat__side
   .chat__side__header
-    %h
-      = current_user.name
+    %h5= current_user.name
     .chat__side__header__action
       = link_to new_group_path , class: "chat__side__header__action__pencil" do
         %i.fa.fa-pencil-square-o
