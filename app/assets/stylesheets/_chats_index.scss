@@ -1,0 +1,251 @@
+@import "font-awesome";
+@import "mixins";
+@import "variables";
+
+
+.alert-alert {
+  @include flashMessage
+}
+
+.alert-notice {
+  @include flashMessage
+}
+.screen{
+  flex: 1;
+  box-sizing: border-box;
+  .chat {
+    height: 100%;
+    min-width: 960px;
+    background-color: gray;
+
+        &__side {
+        width: 300px;
+        height: 100%;
+        background-color: #2f3e51;
+        float:left;
+
+            &__header{
+            height: 100px;
+            background-color: $chat-header-color;
+            padding: 20px;
+            @include clearfix;
+            box-sizing: border-box;
+
+                 h5 {
+                  color: $basic-color;
+                  font-size: 16px;
+                  font-weight: bold;
+                  letter-spacing: 2px;
+                  float: left;
+                  box-sizing: border-box;
+                 }
+
+                 a{
+                  color: $basic-color;
+                  font-size: 20px;
+                 }
+
+                 &__action{
+                 color: $basic-color;
+                 background-color: $chat-header-color;
+                 float: right;
+                 box-sizing:border-box;
+
+                   &__pencill{
+                     .fa{
+                      @include icon
+                     }
+
+                   }
+                   &__gear{
+                     .fa{
+                      @include icon
+
+                     }
+
+                   }
+
+                 }
+            }
+            &__groups{
+              list-style: none;
+              box-sizing: border-box;
+
+                   &__group{
+                    padding: 20px 20px;
+                    color: $basic-color;
+                    text-decoration: none;
+                    font-size: 15px;
+                    display: block;
+                    box-sizing: border-box;
+                    cursor: auto;
+                  }
+                   &__comment {
+                   font-size: 13px;
+                   padding: 5px 0 40px 0;
+                  }
+
+            }
+        }
+
+
+      &__main {
+        float: left;
+        position: relative;
+        width: calc(100% - 300px);
+        height: 100%;
+        box-sizing: border-box;
+
+            &__header{
+              background-color: $basic-color;
+              padding: 0 40px 0 40px;
+              border-bottom: 1px solid #C0C0C0;
+              @include clearfix;
+              box-sizing: border-box;
+
+                &__left{
+                  background-color: $basic-color;
+                  float: left;
+                  display: block;
+                  box-sizing: border-box;
+
+                    h2 {
+                      margin: 20px 0 0 0;
+                      line-height: 50px;
+                      font-size: 20px;
+                      letter-spacing: 2px;
+                      font-weight: 400;
+                      color: #333333;
+                    }
+                    &__members{
+                      line-height: 20px;
+                      font-size: 12px;
+                      color: #999999;
+                    }
+                  }
+
+                &__right{
+                  background-color: $basic-color;
+                  float: right;
+                  border-color: #1E90FF;
+                  display: block;
+                  box-sizing: border-box;
+
+                    &__edit{
+                      display: inline-block;
+                      margin: 28px 0;
+                      padding-right: 20px;
+                      padding-left: 20px;
+                      line-height: 40px;
+                      color: #38aef0;
+                      font-size: 14px;
+                      border: 2px solid;
+
+                    }
+
+                }
+
+
+            }
+            &__center{
+              position: relative;
+              padding: 30px 0;
+              height: 700px;
+              overflow-y: scroll;
+              box-sizing: border-box;
+
+                &__message{
+                  position: absolute;
+                  right: 40px;
+                  left: 40px;
+                  padding: 0;
+                  list-style: none;
+                  box-sizing: border-box;
+
+                    &__name{
+                      color: #434A54;
+                      font-weight: bold;
+                      font-size: 16px;
+                      float: left;
+                      padding: 0 10px 0 0;
+
+                    }
+                    &__date{
+                      font-size: 12px;
+                      color: #999999;
+                      float: left;
+                      margin: 5px 0 0 0;
+
+
+                    }
+                    &__text{
+                      font-size: 14px;
+                      color: #434A54;
+                      height: 100%;
+                      padding: 10px 0 0 0;
+                      clear: both;
+
+                    }
+
+                }
+
+            }
+            &__footer{
+              position: absolute;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              padding: 20px 40px;
+              background-color: #ddd;
+
+                &__newmessage{
+                  display: block;
+                  box-sizing: border-box;
+
+                    &__area{
+                      background-color: $basic-color;
+                      float: left;
+                      width: calc(100% - 115px);
+                      height: 50px;
+                      position: relative;
+
+                        .message__text{
+                          min-width: 700px;
+                          height: 30px;
+                          margin: 10px;
+                          border: none;
+
+                        }
+                        .message__image{
+                        cursor: pointer;
+                        width: 40px;
+                        height: 50px;
+                        background-color: $basic-color;
+                        float: right;
+                        margin: 20px 0 0 0;
+
+                          .fa {
+                          @include icon
+                           }
+                        }
+                    }
+
+                }
+                 input{
+                  float: left;
+                  display: inline-block;
+                  width: 100px;
+                  margin-left: 15px;
+                  line-height: 50px;
+                  color: $basic-color;
+                  background-color: #38aef0;
+                  text-align: center;
+                  border: none;
+                  padding: 0;
+                }
+
+            }
+      }
+
+    }
+}
