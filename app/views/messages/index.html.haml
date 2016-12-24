@@ -1,0 +1,31 @@
+.screen
+  .chat
+    = render partial: "groups/chat_side"
+    .chat__main
+      .chat__main__header
+        .chat__main__header__left
+          %h2= @group.name
+          %p.chat__main__header__left__members
+            Member:
+            - @group_users.each do |user|
+              =user.name
+        .chat__main__header__right
+          = link_to edit_group_path(@group),class: "chat__main__header__right__edit" do
+            %p Edit
+      .chat__main__center
+        %ul.chat__main__center__message
+          - @group_messages.each do |message|
+            %li.chat__main__center__message__name
+              .chat__main__center__message__date
+                = message.user.name
+                = message.created_at
+              %p.chat__main__center__message__text
+                = message.body
+      .chat__main__footer
+        = form_for [@group, @message], html: {class: 'chat__main__footer__newmessage'} do |f|
+          .chat__main__footer__newmessage__area
+            = f.text_area :body, placeholder: "type a message", class: "message__text"
+            %label.message__image
+              %i{class: "fa fa-image"}
+              = f.file_field :image,{class: "message__image__file"}
+          = f.submit "Send"

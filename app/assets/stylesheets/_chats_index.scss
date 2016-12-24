@@ -10,6 +10,15 @@
 .alert-notice {
   @include flashMessage
 }
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #fafafa;
+  box-sizing: border-box;
+}
 .screen{
   flex: 1;
   box-sizing: border-box;
@@ -17,6 +26,7 @@
     height: 100%;
     min-width: 960px;
     background-color: gray;
+    clear: both;
 
         &__side {
         width: 300px;
@@ -68,17 +78,25 @@
                  }
             }
             &__groups{
+              margin: 0;
+              padding: 0;
+              color: #fff;
               list-style: none;
               box-sizing: border-box;
 
                    &__group{
-                    padding: 20px 20px;
                     color: $basic-color;
                     text-decoration: none;
                     font-size: 15px;
                     display: block;
                     box-sizing: border-box;
                     cursor: auto;
+                    display: list-item;
+                    text-align: -webkit-match-parent;
+
+                      a {
+                        padding: 20px;
+                      }
                   }
                    &__comment {
                    font-size: 13px;
@@ -150,7 +168,8 @@
             &__center{
               position: relative;
               padding: 30px 0;
-              height: 700px;
+              min-height: 600px;
+              height: 100%;
               overflow-y: scroll;
               box-sizing: border-box;
 
@@ -160,14 +179,15 @@
                   left: 40px;
                   padding: 0;
                   list-style: none;
+                  display: block;
                   box-sizing: border-box;
 
                     &__name{
+                      margin-bottom: 40px;
                       color: #434A54;
                       font-weight: bold;
                       font-size: 16px;
-                      float: left;
-                      padding: 0 10px 0 0;
+                      box-sizing:border-box;
 
                     }
                     &__date{
@@ -210,24 +230,32 @@
                       position: relative;
 
                         .message__text{
-                          min-width: 700px;
-                          height: 30px;
-                          margin: 10px;
+                          width: 100%;
+                          height: 50px;
+                          padding: 15px 10px;
+                          line-height: 20px;
                           border: none;
-
+                          resize: none;
+                          display: block;
+                          box-sizing: border-box;
                         }
                         .message__image{
-                        cursor: pointer;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        display: inline-block;
                         width: 40px;
                         height: 50px;
-                        background-color: $basic-color;
-                        float: right;
-                        margin: 20px 0 0 0;
-
+                        line-height: 50px;
+                        text-align: center;
+                        cursor: pointer;
                           .fa {
                           @include icon
-                           }
                         }
+                          &__file{
+                            display: none;
+                        }
+                      }
                     }
 
                 }
