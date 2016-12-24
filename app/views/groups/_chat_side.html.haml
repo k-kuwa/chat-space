@@ -9,6 +9,6 @@
   %ul.chat__side__groups
     - @user_groups.each do |user_group|
       %li.chat__side__groups__group
-        = link_to "#{user_group.id}" ,class: "chat__side__groups__group" do
-          = user_group.name
-    %p.chat__side__groups__comment
+        = link_to  group_messages_path(user_group.id), class: "chat__side__groups__group" do
+          %p.chat__side__groups__user= user_group.name
+          %p.chat__side__groups__comment

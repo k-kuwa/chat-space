@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
 
- before_action :set_group, only: %i(show edit update)
- before_action :set_user_groups, only: %i(index show)
+ before_action :set_group, only: %i(edit update)
+ before_action :set_user_groups, only: %i(index)
 
  def index
  end
@@ -17,11 +17,7 @@ class GroupsController < ApplicationController
      redirect_to group_path(id: @group.id), notice: "グループを作成しました。"
    else
      render :new
-  end
- end
-
- def show
-  @users = @group.users
+   end
  end
 
  def edit
@@ -29,7 +25,7 @@ class GroupsController < ApplicationController
 
  def update
   if @group.update(group_params)
-    redirect_to group_path(id: @group.id), notice: "グループを編集しました。"
+    redirect_to group_messages_path(group_id: @group.id), notice: "グループを編集しました。"
   else
     render :edit
   end
