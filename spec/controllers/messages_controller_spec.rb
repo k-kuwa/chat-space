@@ -5,7 +5,6 @@ describe MessagesController do
   describe 'GET #index' do
     let!(:user){create(:user)}
     let!(:group){create(:group)}
-    let!(:message){create(:message)}
 
     before do
       sign_in user
@@ -22,11 +21,9 @@ describe MessagesController do
       expect(assigns(:group)).to eq @group
     end
 
-
     it "renders the :index template" do
       get :index, params: { group_id: group.id}
       expect(response).to render_template :index
     end
   end
 end
-
