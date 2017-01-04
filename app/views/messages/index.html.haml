@@ -7,14 +7,14 @@
           %h2= @group.name
           %p.chat__main__header__left__members
             Member:
-            - @group_users.each do |user|
+            - @group.users.each do |user|
               =user.name
         .chat__main__header__right
           = link_to edit_group_path(@group),class: "chat__main__header__right__edit" do
             %p Edit
       .chat__main__center
         %ul.chat__main__center__message
-          - @group_messages.each do |message|
+          - @group.messages.each do |message|
             %li.chat__main__center__message__name
               .chat__main__center__message__date
                 = message.user.name
