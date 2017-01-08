@@ -16,9 +16,11 @@
         %ul.chat__main__center__message
           - @group.messages.each do |message|
             %li.chat__main__center__message__name
-              .chat__main__center__message__date
-                = message.user.name
-                = message.created_at
+              .chat__main__center__message__header
+                %p.chat__main__center__message__header__name
+                  = message.user.name
+                %p.chat__main__center__message__header__time
+                  = message.created_at
               %p.chat__main__center__message__text
                 = message.body
       .chat__main__footer
@@ -28,4 +30,4 @@
             %label.message__image
               %i{class: "fa fa-image"}
               = f.file_field :image,{class: "message__image__file"}
-          = f.submit "Send"
+          = f.submit "Send", id: 'message_submit'
