@@ -6,9 +6,20 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.create(message_params)
-    redirect_to group_messages_path(params[:group_id])
-    flash[:alert] = 'メッセージを入力してください' unless @message.save
+    @message = Message.new(message_params)
+    if @message.save
+      respond_to do |format|
+        format.html {redirect_to group_messages_path}
+        format.json {render json: {
+          name: current_user.name,
+          time: @message.created_at.strftime("%Y-%m-%d %H:%M:%S"),
+          text: @message.body
+        }
+      }
+      end
+    else
+      redirect_to group_messages_path, alert: 'メッセージを入力してください'
+    end
   end
 
  private
