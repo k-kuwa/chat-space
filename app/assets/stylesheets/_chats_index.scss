@@ -31,6 +31,7 @@ body {
         &__side {
         width: 300px;
         height: 100%;
+        min-height: 700px;
         background-color: #2f3e51;
         float:left;
 
@@ -166,12 +167,13 @@ body {
 
             }
             &__center{
+              display: block;
               position: relative;
               padding: 30px 0;
-              min-height: 600px;
-              height: 100%;
               overflow-y: scroll;
               box-sizing: border-box;
+              min-height: 600px;
+              height: calc(100% - 190px);
 
                 &__message{
                   position: absolute;
@@ -190,13 +192,23 @@ body {
                       box-sizing:border-box;
 
                     }
-                    &__date{
-                      font-size: 12px;
-                      color: #999999;
+                    &__header{
                       float: left;
                       margin: 5px 0 0 0;
 
+                      &__name{
+                        float: left;
 
+                      }
+                      &__time{
+                        float: left;
+                        font-size: 12px;
+                        color: #999999;
+                        margin-left: 10px;
+                        line-height: 20px;
+                        text-align:-webkit-match-parent;
+
+                      }
                     }
                     &__text{
                       font-size: 14px;
