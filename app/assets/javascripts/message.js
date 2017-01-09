@@ -22,7 +22,7 @@ $(function() {
     var formdata = new FormData($('.chat__main__footer__newmessage').get(0));
     $.ajax({
       type: 'POST',
-      url: window.location.href + '.json',
+      url: window.location.href,
       data: formdata,
       processData : false,
       contentType : false,

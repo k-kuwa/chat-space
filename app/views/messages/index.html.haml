@@ -28,6 +28,6 @@
           .chat__main__footer__newmessage__area
             = f.text_area :body, placeholder: "type a message", class: "message__text"
             %label.message__image
-              %i{class: "fa fa-image"}
-              = f.file_field :image,{class: "message__image__file"}
+              %i.fa.fa-image
+              = f.file_field :image, {class: "message__image__file"}
           = f.submit "Send", id: 'message_submit'
