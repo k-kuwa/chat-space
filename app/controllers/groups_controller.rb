@@ -32,9 +32,9 @@ class GroupsController < ApplicationController
  end
 
  def search
-  @users = User.where('name LIKE(?)',"%#{params[:username]}%")
+  @users = User.where('name LIKE(?)',"%#{params[:username]}%").where.not(id: current_user.id)
   respond_to do |format|
-        format.json {render json: @users}
+    format.json {render json: @users}
   end
  end
 
