@@ -56,6 +56,13 @@
     &--right {
       float: right;
       width: 70%;
+       #user-search-field {
+        float: left;
+        width: 100%;
+        line-height: 30px;
+        padding: 10px 15px;
+        box-sizing: border-box;
+       }
     }
 
     .chat-group-form__label {
@@ -69,7 +76,7 @@
       float: left;
       width: 100%;
       line-height: 30px;
-      padding: 10px 15px;
+      padding: 10px;
       box-sizing: border-box;
     }
   }
@@ -79,6 +86,7 @@
     line-height: 50px;
     font-size: 14px;
     border-bottom: 1px solid #ddd;
+    @include clearfix;
 
     &__name {
       float: left;
