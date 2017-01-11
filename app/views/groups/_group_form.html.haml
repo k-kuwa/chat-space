@@ -9,15 +9,29 @@
       .chat-group-form__label
         = f.label :name, "グループ名"
     .chat-group-form__field--right
-      #chat_group_name.chat-group-form__input
-        = f.text_field :name, placeholder: "グループ名を入力してください",id:"chat_group_name",class: "chat-group-form__input"
+      / #chat_group_name.chat-group-form__input
+      = f.text_field :name, placeholder: "グループ名を入力してください", id:"chat_group_name", class: "chat-group-form__input"
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
       %label.chat-group-form__label{for: "chat_group_チャットメンバーを追加"} チャットメンバーを追加
     .chat-group-form__field--right
-      .chat-group-form__field.clearfix
-        .chat-group-form__field--left
-        = f.collection_check_boxes(:user_ids, User.all, :id, :name)
+      .chat-group-form__search.cleafix
+        %input{placeholder: "追加したいユーザー名を入力してください", id:"user-search-field", class: "chat-group-form__input", name: "username"}
+      #user-search-result
+        .chat-group-user.clearfix
+          %p.chat-group-user__name
+          %a.user-search-add.chat-group-user__btn.chat-group-user__btn--add
+      / .chat-group-form__field--left
+      / = f.collection_check_boxes(:user_ids, User.all, :id, :name)
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      .chat-group-form__label
+        = f.label :name, "チャットメンバー"
+    .chat-group-form__field--right
+      #chat-group-users
+        .chat-group-user.clearfix
+          %p.chat-group-user__name
+            = @group.users.name
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right
