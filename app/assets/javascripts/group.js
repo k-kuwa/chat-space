@@ -1,6 +1,6 @@
 $(function() {
-  function buildUSER(name, id) {
-      var userList =
+  function buildUserLIST(name, id) {
+      var list =
       '<div class="chat-group-user clearfix">'+
       '<p class="chat-group-user__name">'+
       name+
@@ -9,7 +9,7 @@ $(function() {
       '追加'+
       '</a>' +
       '</div>'
-      return userList
+      return list
   };
 
   $("#user-search-field").on("keyup",function(){
@@ -27,7 +27,7 @@ $(function() {
       if (input != preWord && input.length !== 0){
         $(".chat-group-user.clearfix").remove();
         $.each(data,function(i,user){
-          $('#user-search-result').append(buildUSER(user.name, user.id));
+          $('#user-search-result').append(buildUserLIST(user.name, user.id));
         });
       }
       preWord = input
@@ -35,8 +35,8 @@ $(function() {
   });
 
   //追加されるリスト
-  function addUSER(name, id) {
-      var addList =
+  function addUserLIST(name, id) {
+      var list =
       '<div class="chat-group-users clearfix">'+
       '<input type="hidden" name="group[user_ids][]" value="'+ id +'">' +
       '<p class="chat-group-user__name">'+
@@ -46,7 +46,7 @@ $(function() {
       '削除'+
       '</a>' +
       '</div>'
-      return addList
+      return list
   };
 
   var btn = '.user-search-add.chat-group-user__btn.chat-group-user__btn--add'
@@ -56,7 +56,7 @@ $(function() {
     var name = $(this).data("user-name");
     var id = $(this).data("user-id");
     $(this).parent().remove();
-    $('#chat-group-users').append(addUSER(name, id));
+    $('#chat-group-users').append(addUserLIST(name, id));
   });
 
   //削除ボタン機能
@@ -64,6 +64,6 @@ $(function() {
     var name = $(this).data("user-name");
     var id = $(this).data("user-id");
     $(this).parent().remove();
-    $('#user-search-result').append(buildUSER(name, id));
+    $('#user-search-result').append(buildUserLIST(name, id));
   });
 });
