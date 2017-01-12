@@ -1,5 +1,5 @@
 $(function() {
-  function buildUserLIST(name, id) {
+  function userLIST(name, id) {
       var list =
       '<div class="chat-group-user clearfix">'+
       '<p class="chat-group-user__name">'+
@@ -27,7 +27,7 @@ $(function() {
       if (input != preWord && input.length !== 0){
         $(".chat-group-user.clearfix").remove();
         $.each(data,function(i,user){
-          $('#user-search-result').append(buildUserLIST(user.name, user.id));
+          $('#user-search-result').append(userLIST(user.name, user.id));
         });
       }
       preWord = input
@@ -35,7 +35,7 @@ $(function() {
   });
 
   //追加されるリスト
-  function addUserLIST(name, id) {
+  function additionalLIST(name, id) {
       var list =
       '<div class="chat-group-users clearfix">'+
       '<input type="hidden" name="group[user_ids][]" value="'+ id +'">' +
@@ -56,7 +56,7 @@ $(function() {
     var name = $(this).data("user-name");
     var id = $(this).data("user-id");
     $(this).parent().remove();
-    $('#chat-group-users').append(addUserLIST(name, id));
+    $('#chat-group-users').append(additionalLIST(name, id));
   });
 
   //削除ボタン機能
@@ -64,6 +64,6 @@ $(function() {
     var name = $(this).data("user-name");
     var id = $(this).data("user-id");
     $(this).parent().remove();
-    $('#user-search-result').append(buildUserLIST(name, id));
+    $('#user-search-result').append(userLIST(name, id));
   });
 });
