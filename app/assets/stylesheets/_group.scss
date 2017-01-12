@@ -56,6 +56,7 @@
     &--right {
       float: right;
       width: 70%;
+      min-height: 50px;
        #user-search-field {
         float: left;
         width: 100%;
@@ -82,6 +83,31 @@
   }
 
   .chat-group-user {
+    padding: 0 15px;
+    line-height: 50px;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+    @include clearfix;
+
+    &__name {
+      float: left;
+    }
+
+    &__btn {
+      float: right;
+      display: inline-block;
+      cursor: pointer;
+
+      &--add {
+        color: #38aef0;
+      }
+
+      &--remove {
+        color: #f05050;
+      }
+    }
+  }
+  .chat-group-users {
     padding: 0 15px;
     line-height: 50px;
     font-size: 14px;
