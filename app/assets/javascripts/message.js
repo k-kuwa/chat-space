@@ -1,18 +1,24 @@
 $(function() {
   function buildHTML(message) {
+    if(message.image !== null){
+      var imageSpace = '<br>'+'<img src="' + message.image + '">'
+    else
+      var imageSpace = ''
+    }
     var html =
     '<li class="chat__main__center__message__name">'+
     '<div class="chat__main__center__message__header">'+
     '<p class="chat__main__center__message__header__name">'+
     message.name +
-    '</p>'+
+    '</p>' +
     '<p class="chat__main__center__message__header__time">'+
     message.time +
     '</p>' +
     '</div>' +
     '<p class="chat__main__center__message__text">'+
     message.text +
-    '</p>'
+    imageSpace +
+    '</p>' +
     '</li>'
     return html
   };
