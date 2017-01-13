@@ -14,3 +14,4 @@
 /test/controllers
 /test/fixtures
 /test/models
+/.env
