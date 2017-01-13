@@ -23,6 +23,8 @@
                   = message.created_at
               %p.chat__main__center__message__text
                 = message.body
+                %br
+                = image_tag message.image
       .chat__main__footer
         = form_for [@group, @message], html: {class: 'chat__main__footer__newmessage'} do |f|
           .chat__main__footer__newmessage__area
