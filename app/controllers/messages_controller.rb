@@ -1,8 +1,23 @@
 class MessagesController < ApplicationController
 
   def index
-    @message = Message.new
     @group = Group.find(params[:group_id])
+    @messages = Message.where(group_id: params[:group_id])
+    respond_to do |format|
+      format.html { @message = Message.new}
+      format.json {
+        array = []
+        @messages.each do |message|
+          array << {
+          name: message.user.name,
+          time: message.created_at.strftime("%Y-%m-%d %H:%M:%S"),
+          text: message.body,
+          image: message.image
+          }
+        end
+          render json:{database: array}
+        }
+    end
   end
 
   def create
