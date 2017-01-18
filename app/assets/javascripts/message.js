@@ -1,8 +1,8 @@
 $(function() {
   function buildHTML(message) {
-    if(message.image !== null){
+    if(message.image != null){
       var imageSpace = '<br>'+'<img src="' + message.image + '">'
-    else
+    }else{
       var imageSpace = ''
     }
     var html =
@@ -35,6 +35,7 @@ $(function() {
       dataType: 'json'
     })
     .done(function(data) {
+      console.log(data)
       var html = buildHTML(data);
       $('.chat__main__center__message').append(html);
       $('.message__text').val('');

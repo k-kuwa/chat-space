@@ -1,7 +1,7 @@
 $(function() {
-  function buildHTML(name, time, text, image) {
-    if(image){
-      var imageSpace = '<br>'+'<img src="' + image + '">'
+  function updateHTML(name, time, text, image) {
+    if(image.image.url != null){
+      var imageSpace = '<br>'+'<img src="' + image.image.url + '">'
     }else{
       var imageSpace = ''
     }
@@ -32,8 +32,8 @@ setInterval(function(){
     .done(function(data){
       $('.chat__main__center__message__name').remove();
       $.each(data.database,function(i,message){
-       $('.chat__main__center__message').append(buildHTML(message.name, message.time, message.text, message.image));
+       $('.chat__main__center__message').append(updateHTML(message.name, message.time, message.text, message.image));
       });
     })
-    },10000);
+    },10*1000);
 });

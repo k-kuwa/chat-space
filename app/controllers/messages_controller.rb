@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
 
   def index
     @group = Group.find(params[:group_id])
-    @messages = Message.where(group_id: params[:group_id])
+    @messages = Message.includes(:user).where(group_id: params[:group_id])
     respond_to do |format|
       format.html { @message = Message.new}
       format.json {
@@ -28,7 +28,8 @@ class MessagesController < ApplicationController
         format.json {render json: {
           name: current_user.name,
           time: @message.created_at.strftime("%Y-%m-%d %H:%M:%S"),
-          text: @message.body
+          text: @message.body,
+          image: @message.image.url
         }
       }
       end
