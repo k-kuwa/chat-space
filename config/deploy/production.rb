@@ -1,4 +1,4 @@
-server "ENV['IP']", user: "ENV['user']", roles: %w{app db web}
+server '52.192.120.158', user: 'k-kuwa', roles: %w{app db web}
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
