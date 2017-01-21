@@ -13,9 +13,9 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: root
-  password:
-  socket: /tmp/mysql.sock
+  username: ENV['username']
+  password: <%= ENV['CHAT_SPACE_DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
 
 development:
   <<: *default
@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: chat-space_production
-  username: chat-space
-  password: <%= ENV['CHAT-SPACE_DATABASE_PASSWORD'] %>
+  username: ENV['username']
+  password: <%= ENV['CHAT_SPACE_DATABASE_PASSWORD'] %>
+  host: localhost
