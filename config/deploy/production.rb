@@ -1,4 +1,9 @@
-server '52.192.120.158', user: "ENV['user']", roles: %w{app db web}
+server '52.192.120.158', user: 'ec2-user', roles: %w{app db web}
+
+ set :ssh_options, {
+      keys: '~/.ssh/hartkey.pem',
+      forward_agent: true
+    }
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
