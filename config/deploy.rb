@@ -15,8 +15,8 @@ set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 
 set :default_env, {
-  AWS_ACCESS_KEY_ID: ENV["AWS_Access_Key_Id"],
-  AWS_SECRET_ACCESS_KEY: ENV["AWS_Secret_Key"]
+  aws_access_key_id: ENV["AWS_Access_Key_Id"],
+  aws_secret_access_key: ENV["AWS_Secret_Key"]
 }
 
 after 'deploy:publishing', 'deploy:restart'
