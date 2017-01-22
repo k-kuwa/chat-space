@@ -4,8 +4,6 @@ set :ssh_options, {
       keys: '~/.ssh/hartkey.pem',
       forward_agent: true
 }
-set :aws_access_key_id,     ENV['AWS_Access_Key_Id']
-set :aws_secret_access_key, ENV['AWS_Secret_Key']
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
