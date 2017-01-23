@@ -17,6 +17,7 @@ set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 
 set :default_env, {
+  path: "$HOME/.rbenv/bin:$PATH",
   AWS_Access_Key_Id: ENV['AWS_Access_Key_Id'],
   AWS_Secret_Key: ENV['AWS_Secret_Key']
 }
