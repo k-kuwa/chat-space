@@ -18,8 +18,8 @@ set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 
 set :default_env, {
   path: "$HOME/.rbenv/bin:$PATH",
-  AWS_Access_Key_Id: ENV['AWS_Access_Key_Id'],
-  AWS_Secret_Key: ENV['AWS_Secret_Key']
+  AWS_ACCESS_KEY_ID: ENV['AWS_ACCESS_KEY_ID'],
+  AWS_SECRET_KEY: ENV['AWS_SECRET_KEY']
 }
 
 after 'deploy:publishing', 'deploy:restart'
