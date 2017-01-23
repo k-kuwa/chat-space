@@ -20,6 +20,7 @@ set :default_env, {
   path: "$HOME/.rbenv/bin:$PATH",
   AWS_ACCESS_KEY_ID: ENV['AWS_ACCESS_KEY_ID'],
   AWS_SECRET_KEY: ENV['AWS_SECRET_KEY']
+  username: ENV['username']
 }
 
 after 'deploy:publishing', 'deploy:restart'
