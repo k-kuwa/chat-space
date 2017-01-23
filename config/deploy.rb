@@ -8,18 +8,18 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 set :rbenv_type, :user
 set :rbenv_ruby, '2.3.1'
 
-set :ssh_options, auth_methods: ['publickey'],
-                  keys: ["ENV['keys']"]
-
+set :ssh_options, {
+      keys: '~/.ssh/hartkey.pem',
+      forward_agent: true
+}
+set :deploy_to, "/var/www/chat-space"
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 
 set :default_env, {
-  AWS_Access_Key_Id: ENV["AWS_Access_Key_Id"],
-  AWS_Secret_Key: ENV["AWS_Secret_Key"]
+  AWS_Access_Key_Id: ENV['AWS_Access_Key_Id'],
+  AWS_Secret_Key: ENV['AWS_Secret_Key']
 }
-
-
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
