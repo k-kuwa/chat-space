@@ -2,7 +2,8 @@ server '52.192.120.158', user: 'ec2-user', roles: %w{app db web}
 
 set :ssh_options, {
       keys: '~/.ssh/hartkey.pem',
-      forward_agent: true
+      forward_agent: true,
+      auth_methods: %w(publickey)
 }
 
 # server-based syntax
