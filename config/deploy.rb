@@ -23,12 +23,12 @@ set :default_env, {
   AWS_SECRET_KEY: ENV['AWS_SECRET_KEY']
 }
 
-after 'deploy:publishing', 'deploy:restart'
-namespace :deploy do
-  task :restart do
-    invoke 'unicorn:restart'
-  end
-end
+# after 'deploy:publishing', 'deploy:restart'
+# namespace :deploy do
+#   task :restart do
+#     invoke 'unicorn:restart'
+#   end
+# end
 
 # desc 'Create database'
 #   task :db_create do
