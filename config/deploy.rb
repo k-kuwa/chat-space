@@ -13,6 +13,7 @@ set :ssh_options, {
       forward_agent: true,
       auth_methods: %w(publickey)
 }
+set :branch, 'master'
 set :deploy_to, "/var/www/chat-space"
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
